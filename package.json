@@ -1,6 +1,6 @@
 {
   "name": "megapi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "node for megapi firmware",
   "main": "./megapi",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ZeroPiProject/NodeForMegaPi"
+    "url": "https://github.com/Makeblock-Official/NodeForMegaPi"
   },
   "keywords": [
     "mega pi",
@@ -17,11 +17,11 @@
   ],
  "dependencies" :
   { 
-	"serialport" : "=2.0.2"
+	"serialport" : "=2.0.0"
   },
   "author": "ander@makeblock.cc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ZeroPiProject/NodeForMegaPi/issues"
+    "url": "https://github.com/Makeblock-Official/NodeForMegaPi/issues"
   }
 }
