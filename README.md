@@ -82,7 +82,8 @@ function onStart(){
  	* 7-segment Display
  	  * **sevenSegmentDisplay** ( port, value )
  	* Led Matrix Display
- 	  * **ledMatrixDisplay** ( port, buffer )
+ 	  * **ledMatrixDisplayMessage** ( port, x, y, msg )
+ 	  * **ledMatrixDisplayRaw** ( port, buffer )
  	* Serial LCD Display
  	  * **lcdDisplay** ( string )
  	  
