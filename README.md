@@ -56,7 +56,7 @@ function onStart(){
  	* Touch Sensor
  	  * **touchSensorRead** ( port, **function** onResult ) 
  	* LimitSwitch
- 	  * **limitSwitchRead** ( port, **function** onResult ) 
+ 	  * **limitSwitchRead** ( port, slot, **function** onResult ) 
  	* Humiture Sensor
  	  * **humitureSensorRead** ( port, type, **function** onResult ) 
  	* Gas Sensor
