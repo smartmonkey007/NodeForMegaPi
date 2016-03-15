@@ -9,9 +9,8 @@
 ```
 var MegaPi = require("megapi").MegaPi;
 var bot = new MegaPi(onStart);
-
 function onStart(){
-
+  //start your code
 }
  ```
  * node your code
