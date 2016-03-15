@@ -36,9 +36,10 @@ function onStart(){
 	  * **encoderMotorMove**( port, speed, display, **function** onFinish )
 	  * **encoderMotorMoveTo**( port, speed, position, **function** onFinish )
 	* Stepper Motor
+	  * **stepperMotorSetting**( port, microsteps, acceleration )
 	  * **stepperMotorRun**( port, speed )
-	  * **encoderMotorMove**( port, speed, display, **function** onFinish )
-	  * **encoderMotorMoveTo**( port, speed, position, **function** onFinish )
+	  * **stepperMotorMove**( port, speed, display, **function** onFinish )
+	  * **stepperMotorMoveTo**( port, speed, position, **function** onFinish )
 	  
  * Sensors
  	* Ultrasonic Sensor
