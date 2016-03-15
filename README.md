@@ -86,4 +86,7 @@ function onStart(){
  	  
  * Others
  	* DSLR Shutter
-	  * **shutterDo** ( port, method )
+	  * **shutterOn** ( port )
+	  * **shutterOff** ( port )
+	  * **focusOn** ( port )
+	  * **focusOff** ( port )
