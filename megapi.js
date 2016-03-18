@@ -276,46 +276,46 @@ MegaPi.prototype.encoderMotorSpeed = function(slot,callback){
 
 
 
-MegaPi.prototype.stepperMotorRun = function(slot,speed){
+MegaPi.prototype.stepperMotorRun = function(port,speed){
   var id = 0;
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
-  write([id,action,device,0,slot,1,spd[1],spd[0]]);
+  write([id,action,device,port,1,spd[1],spd[0]]);
 }
-MegaPi.prototype.stepperMotorMove = function(slot,speed,distance,callback){
+MegaPi.prototype.stepperMotorMove = function(port,speed,distance,callback){
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
   var dist = getBytesFromShort(distance);
-  var id = ((slot<<4)+device)&0xff;
+  var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,0,slot,2,spd[1],spd[0],dist[1],dist[0]]);
+  write([id,action,device,port,2,spd[1],spd[0],dist[1],dist[0]]);
 }
-MegaPi.prototype.stepperMotorMoveTo = function(slot,speed,position,callback){
+MegaPi.prototype.stepperMotorMoveTo = function(port,speed,position,callback){
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
   var pst = getBytesFromShort(position);
-  var id = ((slot<<4)+device)&0xff;
+  var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,0,slot,3,spd[1],spd[0],pst[1],pst[0]]);
+  write([id,action,device,port,3,spd[1],spd[0],pst[1],pst[0]]);
 }
-MegaPi.prototype.stepperMotorPosition = function(slot,callback){
+MegaPi.prototype.stepperMotorPosition = function(port,callback){
   var id = 0;
   var action = 1;
   var device = 62;
-  var id = (((slot+action)<<4)+device)&0xff;
+  var id = (((port+action)<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,slot,1]);
+  write([id,action,device,port,1]);
 }
-MegaPi.prototype.stepperMotorSpeed = function(slot,callback){
+MegaPi.prototype.stepperMotorSpeed = function(port,callback){
   var id = 0;
   var action = 1;
   var device = 62;
-  var id = (((slot+action)<<4)+device)&0xff;
+  var id = (((port+action)<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,0,slot,2]);
+  write([id,action,device,port,2]);
 }
 
 MegaPi.prototype.rgbledDisplay = function(port,slot,index,r,g,b){
