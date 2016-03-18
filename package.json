@@ -1,6 +1,6 @@
 {
   "name": "megapi",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "node for megapi firmware",
   "main": "./megapi",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "author": "ander@makeblock.cc",
   "license": "MIT",
-  "readme": "README.md",
+  "readme": "",
   "bugs": {
     "url": "https://github.com/Makeblock-Official/NodeForMegaPi/issues"
   }
