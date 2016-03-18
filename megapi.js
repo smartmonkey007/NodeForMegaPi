@@ -301,6 +301,13 @@ MegaPi.prototype.stepperMotorMoveTo = function(port,speed,position,callback){
   selectors["callback_"+id] = callback;
   write([id,action,device,port,3,spd[1],spd[0],pst[1],pst[0]]);
 }
+MegaPi.prototype.stepperMotorSetting = function(port,microsteps,acceleration){
+  var action = 2;
+  var device = 62;
+  var acc = getBytesFromShort(acceleration);
+  var id = 0;
+  write([id,action,device,port,4,microsteps,acc[1],acc[0]]);
+}
 MegaPi.prototype.stepperMotorPosition = function(port,callback){
   var id = 0;
   var action = 1;
