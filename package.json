@@ -1,6 +1,6 @@
 {
   "name": "megapi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "node for megapi firmware",
   "main": "./megapi",
   "scripts": {
@@ -13,14 +13,15 @@
   "keywords": [
     "mega pi",
     "raspberry pi",
-    "arduino"
+    "arduino",
+    "mega2560"
   ],
  "dependencies" :
   { 
 	"serialport" : "=2.0.0"
   },
   "author": "ander@makeblock.cc",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Makeblock-Official/NodeForMegaPi/issues"
   }
