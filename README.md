@@ -32,12 +32,12 @@ function onStart(){
 	  * **servoRun**( port, angle )
 	* Encoder Motor
 	  * **encoderMotorRun**( port, speed )
-	  * **encoderMotorMove**( port, speed, display, **function** onFinish )
+	  * **encoderMotorMove**( port, speed, distance, **function** onFinish )
 	  * **encoderMotorMoveTo**( port, speed, position, **function** onFinish )
 	* Stepper Motor
 	  * **stepperMotorSetting**( port, microsteps, acceleration )
 	  * **stepperMotorRun**( port, speed )
-	  * **stepperMotorMove**( port, speed, display, **function** onFinish )
+	  * **stepperMotorMove**( port, speed, distance, **function** onFinish )
 	  * **stepperMotorMoveTo**( port, speed, position, **function** onFinish )
 	  
  * Sensors
