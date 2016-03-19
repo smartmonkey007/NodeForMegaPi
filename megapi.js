@@ -35,40 +35,40 @@ function MegaPi(onStart)
                {
               isParseStart = false;
               var position = isParseStartIndex+2;
-              var extID = buffer[position];
+              var extId = buffer[position];
               position+=1;
               var type = buffer[position];
               var value = 0;
               position+=1;//# 1 byte 2 float 3 short 4 len+string 5 double 6 long
             
               switch(type)
-                 { 
+              { 
                 case 1:
-		   {
+				{
                   value = buffer[position];
-                   }
+                }
                 break;
-		   case 2:
-		   {
+				case 2:
+				{
                   value = getFloatFromBytes([buffer[position],buffer[position+1],buffer[position+2],buffer[position+3]]);
-                   }
+                }
                 break;
-		   case 3:
-		   {
+				case 3:
+				{
                   value = getShortFromBytes([buffer[position],buffer[position+1]]);
-                   }
+                }
                 break;
-				 case 6:
-				 {
+				case 6:
+				{
 					 value = getLongFromBytes([buffer[position],buffer[position+1],buffer[position+2],buffer[position+3]]);
-				 }
-				 break;
-                 }
+				}
+				break;
+              }
               if(type<=6){
-                responseValue(extID,value);
-                 }
-	        buffer = [];
-               }
+                responseValue(extId,value);
+              }
+			  buffer = [];
+            }
           }
         }
      });
@@ -221,7 +221,7 @@ MegaPi.prototype.dcMotorRun = function(port,speed){
   var action = 2;
   var device = 0xa;
   var spd = getBytesFromShort(speed);
-  write([id,action,device,port,spd[1],spd[0]]);
+  write([id,action,device,port].concat(spd));
 }
 MegaPi.prototype.dcMotorStop = function(port){
   self.dcMotorRun(port,0);
@@ -237,7 +237,7 @@ MegaPi.prototype.encoderMotorRun = function(slot,speed){
   var action = 2;
   var device = 61;
   var spd = getBytesFromShort(speed);
-  write([id,action,device,0,slot,1,spd[1],spd[0]]);
+  write([id,action,device,0,slot,1].concat(spd));
 }
 MegaPi.prototype.encoderMotorMove = function(slot,speed,distance,callback){
   var action = 2;
@@ -246,7 +246,7 @@ MegaPi.prototype.encoderMotorMove = function(slot,speed,distance,callback){
   var dist = getBytesFromShort(distance);
   var id = ((slot<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,0,slot,2,spd[1],spd[0],dist[1],dist[0]]);
+  write([id,action,device,0,slot,2].concat(spd).concat(dist));
 }
 MegaPi.prototype.encoderMotorMoveTo = function(slot,speed,position,callback){
   var action = 2;
@@ -255,7 +255,7 @@ MegaPi.prototype.encoderMotorMoveTo = function(slot,speed,position,callback){
   var pst = getBytesFromShort(position);
   var id = ((slot<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,0,slot,3,spd[1],spd[0],pst[1],pst[0]]);
+  write([id,action,device,0,slot,3].concat(spd).concat(pst));
 }
 MegaPi.prototype.encoderMotorPosition = function(slot,callback){
   var id = 0;
@@ -281,7 +281,7 @@ MegaPi.prototype.stepperMotorRun = function(port,speed){
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
-  write([id,action,device,port,1,spd[1],spd[0]]);
+  write([id,action,device,port,1].concat(spd));
 }
 MegaPi.prototype.stepperMotorMove = function(port,speed,distance,callback){
   var action = 2;
@@ -290,7 +290,7 @@ MegaPi.prototype.stepperMotorMove = function(port,speed,distance,callback){
   var dist = getBytesFromShort(distance);
   var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,port,2,spd[1],spd[0],dist[1],dist[0]]);
+  write([id,action,device,port,2].concat(spd).concat(dist));
 }
 MegaPi.prototype.stepperMotorMoveTo = function(port,speed,position,callback){
   var action = 2;
@@ -299,14 +299,14 @@ MegaPi.prototype.stepperMotorMoveTo = function(port,speed,position,callback){
   var pst = getBytesFromShort(position);
   var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,port,3,spd[1],spd[0],pst[1],pst[0]]);
+  write([id,action,device,port,3].concat(spd).concat(pst));
 }
 MegaPi.prototype.stepperMotorSetting = function(port,microsteps,acceleration){
   var action = 2;
   var device = 62;
   var acc = getBytesFromShort(acceleration);
   var id = 0;
-  write([id,action,device,port,4,microsteps,acc[1],acc[0]]);
+  write([id,action,device,port,4,microsteps].concat(acc));
 }
 MegaPi.prototype.stepperMotorPosition = function(port,callback){
   var id = 0;
