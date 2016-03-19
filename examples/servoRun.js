@@ -1,4 +1,4 @@
-var MegaPi = require("megapi").MegaPi;
+var MegaPi = require("../megapi").MegaPi;
 var bot = new MegaPi(onStart);
 
 var level = 1;
