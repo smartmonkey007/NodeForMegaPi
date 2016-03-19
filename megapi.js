@@ -370,14 +370,12 @@ MegaPi.prototype.mecanumRun = function(xSpeed,ySpeed,aSpeed){
   self.dcMotorRun(10,-spd4);
 }
 function getShortFromBytes( v ){
-    var val = 0;
-    for (var i = 0; i < v.length; ++i) {        
-        val += v[i];        
-        if (i < v.length-1) {
-            val = val << 8;
-        }
-    }
-    return val;
+  var buf = new ArrayBuffer(2);
+  var i = new Uint8Array(buf);
+  i[0] = v[0];
+  i[1] = v[1];
+  var s = new Int16Array(buf);
+  return s[0];
 }
 function getFloatFromBytes(v){
   var buf = new ArrayBuffer(4);
@@ -404,13 +402,13 @@ function getBytesFromShort( v ){
   var s = new Int16Array(buf);
   s[0] = v;
   var i = new Uint8Array(buf);
-  return i;
+  return [i[0],i[1]];
 }
 function getBytesFromFloat(v){
   var buf = new ArrayBuffer(4);
   var f = new Float32Array(buf);
   f[0] = v;
   var i = new Uint8Array(buf);
-  return i;
+  return [i[0],i[1],i[2],i[3]];
 }
 exports.MegaPi = MegaPi;
