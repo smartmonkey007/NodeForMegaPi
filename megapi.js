@@ -243,7 +243,7 @@ MegaPi.prototype.encoderMotorMove = function(slot,speed,distance,callback){
   var action = 2;
   var device = 61;
   var spd = getBytesFromShort(speed);
-  var dist = getBytesFromShort(distance);
+  var dist = getBytesFromLong(distance);
   var id = ((slot<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
   write([id,action,device,0,slot,2].concat(spd).concat(dist));
@@ -252,7 +252,7 @@ MegaPi.prototype.encoderMotorMoveTo = function(slot,speed,position,callback){
   var action = 2;
   var device = 61;
   var spd = getBytesFromShort(speed);
-  var pst = getBytesFromShort(position);
+  var pst = getBytesFromLong(position);
   var id = ((slot<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
   write([id,action,device,0,slot,3].concat(spd).concat(pst));
@@ -287,7 +287,7 @@ MegaPi.prototype.stepperMotorMove = function(port,speed,distance,callback){
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
-  var dist = getBytesFromShort(distance);
+  var dist = getBytesFromLong(distance);
   var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
   write([id,action,device,port,2].concat(spd).concat(dist));
@@ -296,7 +296,7 @@ MegaPi.prototype.stepperMotorMoveTo = function(port,speed,position,callback){
   var action = 2;
   var device = 62;
   var spd = getBytesFromShort(speed);
-  var pst = getBytesFromShort(position);
+  var pst = getBytesFromLong(position);
   var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
   write([id,action,device,port,3].concat(spd).concat(pst));
@@ -408,6 +408,13 @@ function getBytesFromFloat(v){
   var buf = new ArrayBuffer(4);
   var f = new Float32Array(buf);
   f[0] = v;
+  var i = new Uint8Array(buf);
+  return [i[0],i[1],i[2],i[3]];
+}
+function getBytesFromLong(v){
+  var buf = new ArrayBuffer(4);
+  var l = new Int32Array(buf);
+  l[0] = v;
   var i = new Uint8Array(buf);
   return [i[0],i[1],i[2],i[3]];
 }
