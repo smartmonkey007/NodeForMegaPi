@@ -167,12 +167,12 @@ MegaPi.prototype.limitSwitchRead = function(port,callback){
   selectors["callback_"+id] = callback;
   write([id,action,device,port]);
 }
-MegaPi.prototype.temperatureRead = function(port,callback){
+MegaPi.prototype.temperatureRead = function(port,slot,callback){
   var action = 1;
   var device = 2;
   var id = ((port<<4)+device)&0xff;
   selectors["callback_"+id] = callback;
-  write([id,action,device,port]);
+  write([id,action,device,port,slot]);
 }
 MegaPi.prototype.touchSensorRead = function(port,callback){
   var action = 1;
@@ -328,8 +328,14 @@ MegaPi.prototype.stepperMotorSpeed = function(port,callback){
 MegaPi.prototype.rgbledDisplay = function(port,slot,index,r,g,b){
   var id = 0;
   var action = 2;
-  var device = 8;
+  var device = 18;
   write([id,action,device,port,slot,index,r,g,b]);
+}
+MegaPi.prototype.rgbledShow = function(port,slot){
+  var id = 0;
+  var action = 2;
+  var device = 19;
+  write([id,action,device,port,slot]);
 }
 MegaPi.prototype.sevenSegmentDisplay = function(port,value){
   var id = 0;
