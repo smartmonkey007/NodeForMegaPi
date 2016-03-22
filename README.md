@@ -76,9 +76,8 @@ function onStart(){
  	
  * Display
  	* RGB Led
- 	  * **rgbLedSetColor** ( port, slot, index, r, g, b )
- 	  * **rgbLedShow** ( port, slot )
  	  * **rgbLedDisplay** ( port, slot, index, r, g, b )
+ 	  * **rgbLedShow** ( port, slot )
  	* 7-segment Display
  	  * **sevenSegmentDisplay** ( port, value )
  	* Led Matrix Display
