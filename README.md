@@ -1,6 +1,6 @@
 # Node For MegaPi
 ## How To Use
- * Compile and upload the Firmware to MegaPi ( https://github.com/Makeblock-Official/FirmwareForMegaPi )
+ * Compile and upload the Firmware to your MegaPi ( https://github.com/Makeblock-Official/FirmwareForMegaPi )
  * On your Raspberry Pi, 
  ```
  npm install megapi
