@@ -1,6 +1,6 @@
 {
   "name": "megapi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "node for megapi firmware",
   "main": "./megapi",
   "scripts": {

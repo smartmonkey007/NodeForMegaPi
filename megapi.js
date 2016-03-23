@@ -353,13 +353,13 @@ MegaPi.prototype.ledMatrixMessage = function(port,x,y,message){
     msg[i] = message.charCodeAt(i);
   }
   msg.push(0);
-  write([id,action,device,port,1,x+128,135-y,message.length+1].concat(msg));
+  write([id,action,device,port,1,x,7-y,message.length+1].concat(msg));
 }
 MegaPi.prototype.ledMatrixDisplay = function(port,x,y,buffer){
   var id = 0;
   var action = 2;
   var device = 41;
-  write([id,action,device,port,2,x+128,135-y].concat(buffer));
+  write([id,action,device,port,2,x,7-y].concat(buffer));
 }
 MegaPi.prototype.shutterDo = function(port,method){
   var id = 0;
