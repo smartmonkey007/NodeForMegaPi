@@ -16,7 +16,7 @@ function onStart(){
 var level = 0;
 function loop(){
   bot.digitalWrite(13, level);
-  level = !level;
+  level = 1-level;
   setTimeout(loop,500);
 }
  ```
