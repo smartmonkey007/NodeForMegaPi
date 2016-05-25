@@ -8,7 +8,8 @@
  * Insert the initial code for starting MegaPi first.
 ```
 var MegaPi = require("megapi").MegaPi;
-var bot = new MegaPi(onStart);
+var bot = new MegaPi("/dev/ttyS0", onStart);
+//"/dev/ttyAMA0" for rpi2, "/dev/ttyS0" for rpi3
 function onStart(){
   //start your code
 }
@@ -17,7 +18,7 @@ function onStart(){
 
 ## Node API
  * Start
- 	* **MegaPi**( **function** onStart)
+ 	* **MegaPi**( serialport, **function** onStart)
  	
  * GPIO
  	* **digitalWrite**( pin, level )
