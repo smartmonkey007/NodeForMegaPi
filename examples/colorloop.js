@@ -5,13 +5,13 @@ var f = 0.0;
 var k = 0.0;
 
 var port = 6;
-var slot = 1;
-
+var slot = 2;
+var red,green,blue;
 function loop(){
   for(var i=1;i<16;i++){
-    var red = 64*(1+Math.sin(((i/2.0)+(j/4.0))));
-    var green = 64*(1+Math.sin(((i/1.0)+(f/9.0)+2.1)));
-    var blue = 64*(1+Math.sin(((i/3.0)+(k/14.0)+4.2)));
+    red = 32*(1+Math.sin(((i/2.0)+(j/4.0))));
+    green = 32*(1+Math.sin(((i/1.0)+(f/9.0)+2.1)));
+    blue = 32*(1+Math.sin(((i/3.0)+(k/14.0)+4.2)));
     bot.rgbledDisplay(6,slot,i,red,green,blue);
   }
   j += Math.random();

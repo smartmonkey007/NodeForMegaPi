@@ -97,8 +97,7 @@ MegaPi.prototype.digitalWrite = function(pin,level){
   var id = 0;
   var action = 2;
   var device = 0x1e;
-  selectors["callback_"+id] = callback;
-  write([id,action,device,pin+54,level]);
+  write([id,action,device,pin,level]);
 }
 MegaPi.prototype.pwmWrite = function(pin,pwm){
   var id = 0;
@@ -107,18 +106,18 @@ MegaPi.prototype.pwmWrite = function(pin,pwm){
   write([id,action,device,pin,pwm]);
 }
 MegaPi.prototype.digitalRead = function(pin,callback){
-  var id = pin+54;
+  var id = pin;
   var action = 1;
   var device = 0x1e;
   selectors["callback_"+id] = callback;
-  write([id,action,device,pin+54]);
+  write([id,action,device,pin]);
 }
 MegaPi.prototype.analogRead = function(pin,callback){
   var id = pin+54;
   var action = 1;
   var device = 0x1f;
   selectors["callback_"+id] = callback;
-  write([id,action,device,pin]);
+  write([id,action,device,pin+54]);
 }
 MegaPi.prototype.ultrasonicSensorRead = function(port,callback){
   var action = 1;
