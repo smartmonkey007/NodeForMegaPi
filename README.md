@@ -99,7 +99,9 @@ function loop(){
 	  * **shutterOff** ( port )
 	  * **focusOn** ( port )
 	  * **focusOff** ( port )
+	  * 
 ## Examples
+
 ```
 https://github.com/Makeblock-official/NodeForMegaPi/tree/master/examples
 ```
