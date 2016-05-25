@@ -11,6 +11,13 @@ var MegaPi = require("megapi").MegaPi;
 var bot = new MegaPi("/dev/ttyS0", onStart); //"/dev/ttyAMA0" for rpi2, "/dev/ttyS0" for rpi3
 function onStart(){
   //start your code
+  setTimeout(loop,500);
+}
+var level = 0;
+function loop(){
+  bot.digitalWrite(13, level);
+  level = !level;
+  setTimeout(loop,500);
 }
  ```
  * node your code
