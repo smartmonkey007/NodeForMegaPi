@@ -1,5 +1,5 @@
 var MegaPi = require("../megapi").MegaPi;
-var bot = new MegaPi(onStart);
+var bot = new MegaPi("/dev/ttyS0",onStart);
 var port = 6;
 var slot = 1;
 var level = 1;

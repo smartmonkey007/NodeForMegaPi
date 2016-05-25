@@ -1,5 +1,5 @@
 var MegaPi = require("../megapi").MegaPi;
-var bot = new MegaPi(onStart);
+var bot = new MegaPi("/dev/ttyS0",onStart);
 
 var level = 1;
 function onFinish1(slot){
