@@ -99,7 +99,7 @@ function loop(){
 	  * **shutterOff** ( port )
 	  * **focusOn** ( port )
 	  * **focusOff** ( port )
-	  * 
+
 ## Examples
 
 ```
