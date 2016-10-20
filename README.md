@@ -105,3 +105,5 @@ function loop(){
 ```
 https://github.com/Makeblock-official/NodeForMegaPi/tree/master/examples
 ```
+
+###Learn more from Makeblock official website: www.makeblock.com
